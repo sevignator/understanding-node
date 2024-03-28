@@ -1,5 +1,5 @@
-import http from 'node:http';
-import fs from 'node:fs';
+const http = require('http');
+const fs = require('fs');
 
 const server = http.createServer();
 
