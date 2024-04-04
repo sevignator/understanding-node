@@ -2,7 +2,7 @@
 // 2. Encode it to a string using utf-8
 // 3. Print the result to the console
 
-const { Buffer } = require('buffer');
+import { Buffer } from 'node:buffer';
 
 const memoryContainer = Buffer.alloc(3);
 
