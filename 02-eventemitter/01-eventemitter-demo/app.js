@@ -1,8 +1,6 @@
 import EventEmitter from 'node:events';
 
-class Emitter extends EventEmitter {}
-
-const myEmitter = new Emitter();
+const myEmitter = new EventEmitter();
 
 myEmitter.on('foo', () => {
   console.log('foo #1 occurs');
