@@ -1,4 +1,4 @@
-const fs = require('fs/promises');
+import fs from 'node:fs/promises';
 
 (async () => {
   const commandFileHandler = await fs.open('./command.txt', 'r');
