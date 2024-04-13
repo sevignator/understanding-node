@@ -1,1 +1,1 @@
-add to a file ./delete-me.txt this content: This content was added front the command.txt file!
+delete the file ./deleteme.txt

@@ -1,8 +1,6 @@
 import fs from 'node:fs/promises';
 
 export async function createFile(path) {
-  let fileHandle;
-
   try {
     const existingFileHandle = await fs.open(path, 'r');
     existingFileHandle.close();
@@ -12,18 +10,21 @@ export async function createFile(path) {
     newFileHandle.close();
     console.log(`The file ${path} was created.`);
   }
-
-  await fs.writeFile(path, '');
 }
 
-export function deleteFile(path) {
-  console.log(`The file ${path} was deleted.`)
+export async function deleteFile(path) {
+  try {
+    await fs.rm(path);
+    console.log(`The file ${path} was deleted.`);
+  } catch {
+    console.log(`The file ${path} doesn't exist.`);
+  }
 }
 
-export function renameFile(oldPath, newPath) {
-  console.log(`The file ${oldPath} was renamed to ${newPath}.`)
+export async function renameFile(oldPath, newPath) {
+  console.log(`The file ${oldPath} was renamed to ${newPath}.`);
 }
 
-export function addToFile(path, data) {
-  console.log(`The data was added to the file ${path}.`)
+export async function addToFile(path, data) {
+  console.log(`The data was added to the file ${path}.`);
 }
