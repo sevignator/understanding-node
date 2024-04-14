@@ -12,4 +12,4 @@ A simple program that watches a file and executes certain commands based on what
     $ node app.js
     ```
 
-4. Type appropriate commands inside of the `command.txt` file.
+4. Type appropriate commands inside of the `command.txt` file, then save.
