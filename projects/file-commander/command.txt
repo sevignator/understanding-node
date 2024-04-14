@@ -1,1 +1,1 @@
-delete the file ./deleteme.txt
+add to the file ./output.txt this content: Newer content!

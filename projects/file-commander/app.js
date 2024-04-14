@@ -13,20 +13,24 @@ import {
 } from './utils/functions.js';
 
 (async () => {
-  const commandFileHandler = await fs.open('./command.txt', 'r');
+  const commandFileHandle = await fs.open('./command.txt', 'r');
   const watcher = fs.watch('./command.txt');
 
-  commandFileHandler.on('change', async () => {
-    const fileSize = (await commandFileHandler.stat()).size;
+  // Custom event handler; gets triggered every time command.txt is saved
+  commandFileHandle.on('change', async () => {
+    // Get the file size of command.txt
+    const fileSize = (await commandFileHandle.stat()).size;
+    // Create a new buffer of that size
     const buffer = Buffer.alloc(fileSize);
-
-    await commandFileHandler.read({
+    // Fill the new buffer with the binary data from command.txt
+    await commandFileHandle.read({
       buffer,
       offset: 0,
       length: buffer.byteLength,
       position: 0,
     });
 
+    // Decode the data from command.txt in UTF-8
     const command = buffer.toString('utf-8');
 
     // Create a file command handler
@@ -66,7 +70,7 @@ import {
 
   for await (const event of watcher) {
     if (event.eventType === 'change') {
-      commandFileHandler.emit('change');
+      commandFileHandle.emit('change');
     }
   }
 })();
