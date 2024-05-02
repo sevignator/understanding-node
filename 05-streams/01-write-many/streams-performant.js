@@ -14,7 +14,7 @@ async function main() {
   const stream = fileHandle.createWriteStream();
 
   let i = 0;
-  const totalIterations = 1_000_000;
+  const totalIterations = 10_000_000;
 
   function writeMany() {
     while (i < totalIterations) {
