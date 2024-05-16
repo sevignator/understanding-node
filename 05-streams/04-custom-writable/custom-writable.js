@@ -72,7 +72,6 @@ class FileWriteStream extends Writable {
 }
 
 const stream = new FileWriteStream({
-  highWaterMark: 1800,
   fileName: './text.txt',
 });
 
